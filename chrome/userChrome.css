@@ -1,0 +1,244 @@
+:root {
+  --tab-min-height: 24px !important;
+}
+
+/* Restyle link hover hints */
+#statuspanel {
+  opacity: 0.5;
+  
+  #statuspanel-label {
+    font-family: monospace;
+    font-size: 10px;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    margin-bottom: 2px !important;
+  }
+}
+
+/* Restyle tabs */
+#TabsToolbar {
+  margin-bottom: -1px !important;
+  
+  /* Add starting gap of the first tab */
+  #tabbrowser-arrowscrollbox[orient="horizontal"] {
+    padding-left: 2px;
+  }
+  
+  /* Match tab corner radius to MacOS window frames */
+  #tabbrowser-tabs {
+    --tab-border-radius: 7px;
+  }
+  
+  /* Improve tab name styling */
+  .tab-label {
+    font-size: 1.1em !important;
+    margin-bottom: 1px !important;
+    margin-left: 1px !important;
+  }
+  
+  /* Add hover opacity animation to close tab & new tab buttons */
+  #tabs-newtab-button,
+  .tab-close-button {
+    opacity: 0.25 !important;
+    &:hover { opacity: 0.75 !important; }
+    
+    /* Style from TailwindCSS */
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.1s;
+  }
+  
+  /* Fix new tab button icon not being centered */
+  #tabs-newtab-button > image {
+    padding-left: 5px !important;
+    padding-bottom: 5px !important;
+  }
+  
+  /* De-emphasize selected/unselected tab background colors */
+  .tabbrowser-tab {
+    opacity: 0.5;
+    
+    &[visuallyselected] { opacity: 1 !important; }
+    & .tab-background { opacity: 0.25 !important; }
+  }
+  
+  /* Resize tab icon (favicon) */
+  .tab-throbber,
+  .tab-icon-pending,
+  .tab-icon-image,
+  .tab-sharing-icon-overlay,
+  .tab-icon-overlay {
+    height: 14px !important;
+    width: 14px !important;
+  }
+}
+
+/* Restyle URL bar */
+#nav-bar {
+  
+  #urlbar-container {
+    --urlbar-container-height: 30px !important;
+  }
+  
+  #urlbar {
+    --urlbar-height: 26px !important;
+    --urlbar-min-height: 26px !important;
+  }
+  
+  /* Reorder icon group to the end of URL bar */
+  box#identity-box {
+    order: 1;
+    gap: 4px;
+    
+    /* Fix lock icon sizing */
+    box#identity-icon-box {
+      width: 22px;
+      justify-content: center;
+      
+      /* Reorder lock icon to the end of icon group */
+      order: 1;
+      
+      /* Hide label */
+      #identity-icon-label {
+        display: none;
+      }
+    }
+    
+    /* Fix lock icon gap in insecure pages */
+    margin-inline-end: var(--identity-box-margin-inline) !important;
+  }
+  
+  /* Reorder shield icon to the end */
+  box#tracking-protection-icon-container {
+    order: 2;
+    margin-right: 1.5px;
+  }
+  
+  /* Page actions */
+  hbox#page-action-buttons {
+    
+    /* Fix page action button gaps */
+    .urlbar-page-action {
+      margin-right: 4px;
+    }
+    
+    /* Fix zoom percentage label */
+    #urlbar-zoom-button {
+      opacity: 0.5;
+      & > label {
+        min-width: unset !important;
+        padding-bottom: 0.5px !important;
+      }
+    }
+  }
+  
+  /* De-emphasize icons */
+  *[role="button"], 
+  #unified-extensions-button,
+  #PanelUI-menu-button {
+    opacity: 0.1 !important;
+    &:hover { opacity: 0.5 !important; }
+    &[open] { opacity: 1 !important; }
+    
+    /* Style from TailwindCSS */
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.1s;
+  }
+  
+  /* Restyle hamburger menu */
+  #PanelUI-menu-button {
+    padding-left: 0 !important;
+    padding-right: 4px !important;
+  }
+  
+  /* Add urlbar padding */
+  .urlbar-input-box {
+    padding-left: 4px !important;
+    padding-bottom: 1px !important;
+    
+    .urlbar-input::placeholder {
+      color: transparent !important;
+    }
+  }
+  
+  #urlbar-container {
+    margin: 0 4px !important;
+  }
+}
+
+/* Remove unnecessary UI elements */
+
+/* Remove buttonbox (close, minimize, maximize buttons) */
+.titlebar-spacer,
+.titlebar-buttonbox-container,
+/* Remove back/forward buttons */
+#back-button,
+#forward-button,
+/* Remove search mode switching dropdown */
+#urlbar-searchmode-switcher
+{
+  display: none;
+}
+
+#urlbar-container {
+  opacity: 0.5 !important;
+}
+
+/* De-emphasize overflow menu hint image */
+#customization-panelHolder > #widget-overflow-fixed-list:empty::before {
+  opacity: 0.1 !important;
+}
+
+
+/* Autohide navbar */
+
+#navigator-toolbox {
+  position: absolute !important;
+  width: 100% !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+#browser {
+  padding-top: 30px !important;
+}
+
+/* Closed state */
+#nav-bar:not([customizing]) {
+  margin-top: -30px;
+  filter: opacity(0%);
+  opacity: 0;
+  transition: 
+    margin-top 100ms ease 200ms,
+    opacity     50ms ease 200ms !important;
+  
+  #urlbar {
+    opacity: 0 !important;
+    transition: 
+      opacity   50ms ease 200ms !important;
+  }
+}
+
+/* Opened state */
+:root:not([customizing]) :hover > #nav-bar,
+#nav-bar:focus-within,
+#urlbar[focused="true"],
+#urlbar[breakout-extend],
+*[role="button"][open],
+#navigator-toolbox:hover > #nav-bar:not([customizing])
+/* #toolbar-menubar:not([inactive='true']) ~ #nav-bar:not([customizing])  */
+{
+  margin-top: 0px;
+  filter: opacity(100%);
+  opacity: 1;
+  transition: 
+    margin-top 100ms ease 50ms,
+    opacity     50ms ease 75ms !important;
+  
+  #urlbar {
+    opacity: 1 !important;
+    transition: 
+      opacity   50ms ease 75ms !important;
+  }
+}
