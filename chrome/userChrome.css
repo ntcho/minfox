@@ -71,6 +71,24 @@
     height: 14px !important;
     width: 14px !important;
   }
+  
+  /* Make container tab indicators more visible */
+  .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+    height: 26px !important;
+    border-radius: 8px !important;
+    margin: -1px -1px -1px -1px !important;
+    
+    /* Gradient background */  
+    /* background-color: unset !important;
+    background: linear-gradient(180deg, 
+      var(--identity-icon-color) 0%, 
+      var(--identity-icon-color) 10%,
+      transparent 100%); */
+    
+    /* Outline border */
+    border: 2px solid var(--identity-icon-color);
+    background-color: unset !important;
+  }
 }
 
 /* Restyle URL bar */
