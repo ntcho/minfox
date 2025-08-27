@@ -227,6 +227,7 @@
   margin-top: -30px;
   filter: opacity(0%);
   opacity: 0;
+  pointer-events: none;
   transition: 
     margin-top 100ms ease 200ms,
     opacity     50ms ease 200ms !important;
@@ -250,6 +251,7 @@
   margin-top: 0px;
   filter: opacity(100%);
   opacity: 1;
+  pointer-events: unset;
   transition: 
     margin-top 100ms ease 50ms,
     opacity     50ms ease 75ms !important;
