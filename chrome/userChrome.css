@@ -242,9 +242,9 @@
 /* Opened state */
 :root:not([customizing]) :hover > #nav-bar,
 #nav-bar:focus-within,
+#nav-bar:has(*[role="button"][open], toolbarbutton[open]),
 #urlbar[focused="true"],
 #urlbar[breakout-extend],
-*[role="button"][open],
 #navigator-toolbox:hover > #nav-bar:not([customizing])
 /* #toolbar-menubar:not([inactive='true']) ~ #nav-bar:not([customizing])  */
 {
