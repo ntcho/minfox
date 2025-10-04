@@ -2,6 +2,8 @@
 
 userChrome for an opinionated absolute minimal Firefox experience on MacOS
 
+https://github.com/user-attachments/assets/c8b06142-76b8-45be-b57b-42610d6007c9
+
 ## UI Customization
 
 `chrome/userChrome.css` contains the CSS that minify and improve the Firefox UI.
