@@ -50,8 +50,7 @@
   
   /* Fix new tab button icon not being centered */
   #tabs-newtab-button > image {
-    padding-left: 5px !important;
-    padding-bottom: 5px !important;
+    transform: translateY(-0.5px);
   }
   
   /* De-emphasize selected/unselected tab background colors */
