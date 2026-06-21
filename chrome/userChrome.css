@@ -50,19 +50,21 @@
   
   /* Make empty space in the tab scrollbar clickkable as new tab button */
   hbox#tabbrowser-arrowscrollbox-periphery {
-    flex: 1; /* Fill empty space */
+    /* flex: 1; /* Fill empty space */
+    margin-right: 32px;
   }
   
   /* Resize new tab button to be same height as tabs */
-  #tabs-newtab-button {
+  /* #tabs-newtab-button {
     width: 100% !important;
     justify-content: start !important;
-  }
+  } */
   
   /* Fix new tab button icon not being centered */
   #tabs-newtab-button > image {
     padding: 5px 5px 5.8px 5.8px !important;
-    transform: scale(0.87) translateX(-2px);
+    border-radius: 8px !important;
+    transform: translateX(-2px);
   }
   
   /* De-emphasize selected/unselected tab background colors */
