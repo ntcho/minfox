@@ -3,12 +3,20 @@
 # Install script for setting up the environment
 
 # 1. Define source and target directories
+if [ "$VARIANT" = "dev" ]; then
+    FIREFOX_APP_NAME="Firefox Developer Edition"
+    PROFILE_PATTERN="*.dev-edition-default"
+else
+    FIREFOX_APP_NAME="Firefox"
+    PROFILE_PATTERN="*.default-release"
+fi
+
 SOURCE_DIR="$(pwd)"
 FIREFOX_PROFILE_DIR="$HOME/Library/Application Support/Firefox/Profiles"
-FIREFOX_INSTALL_DIR="/Applications/Firefox.app/Contents/Resources"
+FIREFOX_INSTALL_DIR="/Applications/$FIREFOX_APP_NAME.app/Contents/Resources"
 
 # 2. Find the default Firefox profile directory
-PROFILE_DIR=$(find "$FIREFOX_PROFILE_DIR" -maxdepth 1 -type d -name "*.default-release" | head -n 1)
+PROFILE_DIR=$(find "$FIREFOX_PROFILE_DIR" -maxdepth 1 -type d -name "$PROFILE_PATTERN" | head -n 1)
 
 # Ensure the target directories exist
 if [ ! -d "$FIREFOX_PROFILE_DIR" ]; then
@@ -140,4 +148,4 @@ echo ""
 echo "Opening \`about:support\` in Firefox..."
 echo "Click \`Clear Startup Cache\` in Firefox to apply changes."
 
-open -a "Firefox" "about:support"
+open -a "$FIREFOX_APP_NAME" "about:support"
