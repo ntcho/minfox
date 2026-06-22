@@ -283,3 +283,9 @@
       opacity  calc( 50ms * var(--duration-scale)) ease calc(  75ms * var(--delay-scale)) !important;
   }
 }
+
+/* Remove pip borders */
+.player-holder > #browser {
+  padding-top: 0px !important;
+  transform: scale(1.007);
+}
