@@ -289,3 +289,8 @@
   padding-top: 0px !important;
   transform: scale(1.007);
 }
+
+/* Remove update notification */
+popupnotification[popupid="update-available"] {
+  display: none !important;
+}
