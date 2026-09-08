@@ -5,7 +5,7 @@
 /* Restyle link hover hints */
 #statuspanel {
   opacity: 0.5;
-  
+
   #statuspanel-label {
     font-family: monospace;
     font-size: 10px;
@@ -18,63 +18,69 @@
 /* Restyle tabs */
 #TabsToolbar {
   margin-bottom: -1px !important;
-  
+
   /* Add starting gap of the first tab */
-  #tabbrowser-arrowscrollbox[orient="horizontal"] {
+  #tabbrowser-arrowscrollbox[orient='horizontal'] {
     padding-left: 2px;
   }
-  
+
   /* Match tab corner radius to MacOS window frames */
   #tabbrowser-tabs {
     --tab-border-radius: 7px;
   }
-  
+
   /* Improve tab name styling */
   .tab-label {
     font-size: 1.1em !important;
     margin-bottom: 1px !important;
     margin-left: 1px !important;
   }
-  
+
   /* Add hover opacity animation to close tab & new tab buttons */
   #tabs-newtab-button,
   .tab-close-button {
     opacity: 0.25 !important;
-    &:hover { opacity: 0.75 !important; }
-    
+    &:hover {
+      opacity: 0.75 !important;
+    }
+
     /* Style from TailwindCSS */
     transition-property: opacity;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 0.1s;
   }
-  
+
   /* Make empty space in the tab scrollbar clickkable as new tab button */
   hbox#tabbrowser-arrowscrollbox-periphery {
     /* flex: 1; /* Fill empty space */
     margin-right: 32px;
   }
-  
+
   /* Resize new tab button to be same height as tabs */
   /* #tabs-newtab-button {
     width: 100% !important;
     justify-content: start !important;
   } */
-  
+
   /* Fix new tab button icon not being centered */
   #tabs-newtab-button > image {
     padding: 5px 5px 5.8px 5.8px !important;
     border-radius: 8px !important;
     transform: translateX(-2px);
   }
-  
+
   /* De-emphasize selected/unselected tab background colors */
   .tabbrowser-tab {
     opacity: 0.5;
-    
-    &[visuallyselected] { opacity: 1 !important; }
-    & .tab-background { opacity: 0.25 !important; }
+
+    &[visuallyselected] {
+      opacity: 1 !important;
+    }
+    & .tab-background {
+      opacity: 0.25 !important;
+    }
   }
-  
+
   /* Resize tab icon (favicon) */
   .tab-throbber,
   .tab-icon-pending,
@@ -84,20 +90,20 @@
     height: 14px !important;
     width: 14px !important;
   }
-  
+
   /* Make container tab indicators more visible */
   .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
     height: 26px !important;
     border-radius: 8px !important;
     margin: -1px -1px -1px -1px !important;
-    
-    /* Gradient background */  
+
+    /* Gradient background */
     /* background-color: unset !important;
     background: linear-gradient(180deg, 
       var(--identity-icon-color) 0%, 
       var(--identity-icon-color) 10%,
       transparent 100%); */
-    
+
     /* Outline border */
     border: 2px solid var(--identity-icon-color);
     background-color: unset !important;
@@ -106,53 +112,52 @@
 
 /* Restyle URL bar */
 #nav-bar {
-  
   #urlbar-container {
     --urlbar-container-height: 30px !important;
   }
-  
+
   #urlbar {
     --urlbar-height: 26px !important;
     --urlbar-min-height: 26px !important;
   }
-  
+
   /* Reorder icon group to the end of URL bar */
   box#identity-box {
     order: 1;
     gap: 4px;
-    
+
     /* Fix lock icon sizing */
     box#identity-icon-box {
       width: 22px;
       justify-content: center;
-      
+
       /* Reorder lock icon to the end of icon group */
       order: 1;
-      
+
       /* Hide label */
       #identity-icon-label {
         display: none;
       }
     }
-    
+
     /* Fix lock icon gap in insecure pages */
     margin-inline-end: var(--identity-box-margin-inline) !important;
   }
-  
+
   /* Reorder shield icon to the end */
-  box#tracking-protection-icon-container, box#trust-icon-container {
+  box#tracking-protection-icon-container,
+  box#trust-icon-container {
     order: 2;
     margin-right: 1.5px;
   }
-  
+
   /* Page actions */
   hbox#page-action-buttons {
-    
     /* Fix page action button gaps */
     .urlbar-page-action {
       margin-right: 4px;
     }
-    
+
     /* Fix zoom percentage label */
     #urlbar-zoom-button {
       opacity: 0.5;
@@ -162,37 +167,41 @@
       }
     }
   }
-  
+
   /* De-emphasize icons */
-  *[role="button"], 
+  *[role='button'],
   #unified-extensions-button,
   #PanelUI-menu-button {
     opacity: 0.1 !important;
-    &:hover { opacity: 0.5 !important; }
-    &[open] { opacity: 1 !important; }
-    
+    &:hover {
+      opacity: 0.5 !important;
+    }
+    &[open] {
+      opacity: 1 !important;
+    }
+
     /* Style from TailwindCSS */
     transition-property: opacity;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 0.1s;
   }
-  
+
   /* Restyle hamburger menu */
   #PanelUI-menu-button {
     padding-left: 0 !important;
     padding-right: 4px !important;
   }
-  
+
   /* Add urlbar padding */
   .urlbar-input-box {
     padding-left: 4px !important;
     padding-bottom: 1px !important;
-    
+
     .urlbar-input::placeholder {
       color: transparent !important;
     }
   }
-  
+
   #urlbar-container {
     margin: 0 4px !important;
   }
@@ -207,8 +216,7 @@
 #back-button,
 #forward-button,
 /* Remove search mode switching dropdown */
-#urlbar-searchmode-switcher
-{
+#urlbar-searchmode-switcher {
   display: none;
 }
 
@@ -220,7 +228,6 @@
 #customization-panelHolder > #widget-overflow-fixed-list:empty::before {
   opacity: 0.1 !important;
 }
-
 
 /* Autohide navbar */
 
@@ -247,15 +254,15 @@
   filter: opacity(0%);
   opacity: 0;
   pointer-events: none;
-  transition: 
-    margin-top calc( 75ms * var(--duration-scale)) ease calc(190ms * var(--delay-scale)),
-    filter     calc( 25ms * var(--duration-scale)) ease calc(200ms * var(--delay-scale)),
-    opacity    calc( 25ms * var(--duration-scale)) ease calc(200ms * var(--delay-scale)) !important;
-  
+  transition:
+    margin-top calc(75ms * var(--duration-scale)) ease calc(190ms * var(--delay-scale)),
+    filter calc(25ms * var(--duration-scale)) ease calc(200ms * var(--delay-scale)),
+    opacity calc(25ms * var(--duration-scale)) ease calc(200ms * var(--delay-scale)) !important;
+
   #urlbar {
     opacity: 0 !important;
-    transition: 
-      opacity  calc( 25ms * var(--duration-scale)) ease calc(175ms * var(--delay-scale)) !important;
+    transition: opacity calc(25ms * var(--duration-scale)) ease
+      calc(175ms * var(--delay-scale)) !important;
   }
 }
 
@@ -266,21 +273,20 @@
 #urlbar[focused="true"],
 #urlbar[breakout-extend],
 #navigator-toolbox:hover > #nav-bar:not([customizing])
-/* #toolbar-menubar:not([inactive='true']) ~ #nav-bar:not([customizing])  */
-{
+/* #toolbar-menubar:not([inactive='true']) ~ #nav-bar:not([customizing])  */ {
   margin-top: -1px;
   filter: opacity(100%);
   opacity: 1;
   pointer-events: unset;
-  transition: 
-    margin-top calc(100ms * var(--duration-scale)) ease calc(  50ms * var(--delay-scale)),
-    filter     calc( 50ms * var(--duration-scale)) ease calc(  75ms * var(--delay-scale)),
-    opacity    calc( 50ms * var(--duration-scale)) ease calc(  75ms * var(--delay-scale)) !important;
-  
+  transition:
+    margin-top calc(100ms * var(--duration-scale)) ease calc(50ms * var(--delay-scale)),
+    filter calc(50ms * var(--duration-scale)) ease calc(75ms * var(--delay-scale)),
+    opacity calc(50ms * var(--duration-scale)) ease calc(75ms * var(--delay-scale)) !important;
+
   #urlbar {
     opacity: 1 !important;
-    transition: 
-      opacity  calc( 50ms * var(--duration-scale)) ease calc(  75ms * var(--delay-scale)) !important;
+    transition: opacity calc(50ms * var(--duration-scale)) ease
+      calc(75ms * var(--delay-scale)) !important;
   }
 }
 
@@ -291,6 +297,11 @@
 }
 
 /* Remove update notification */
-popupnotification[popupid="update-available"] {
+popupnotification[popupid='update-available'] {
+  display: none !important;
+}
+
+/* Remove sidebar header */
+#sidebar-header {
   display: none !important;
 }
