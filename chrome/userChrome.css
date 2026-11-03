@@ -269,7 +269,7 @@
 /* Opened state */
 :root:not([customizing]) :hover > #nav-bar,
 #nav-bar:focus-within,
-#nav-bar:has(*[role="button"][open], toolbarbutton[open]),
+#nav-bar:has(*[role="button"][open], toolbarbutton[data-l10n-id="appmenu-menu-button-opened2"]),
 #urlbar[focused="true"],
 #urlbar[breakout-extend],
 #navigator-toolbox:hover > #nav-bar:not([customizing])
